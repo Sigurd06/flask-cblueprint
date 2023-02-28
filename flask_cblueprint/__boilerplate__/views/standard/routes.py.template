@@ -1,0 +1,18 @@
+from flask import Blueprint
+
+blueprint = Blueprint(
+    '$blueprint_name',
+    __name__,
+    template_folder='templates'
+)
+
+
+@blueprint.route("$url_rule", methods=["GET"])
+def $blueprint_name_route():
+    
+    context = {
+        "hello": "world"
+    }
+
+    return context
+
