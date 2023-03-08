@@ -16,7 +16,7 @@ from flask_cblueprint.config import BLUEPRINTS_BOILERPLATE, BLUEPRINTS_VIEW_STYL
 
 
 @click.command('create-blueprint')
-@click.option('--app-name', help='app name', prompt='Enter you app name', callback=validate_name)
+@click.option('--app-name', help='app name', prompt='Enter you app name', callback=validate_name, default='app')
 @click.option('--name', help='Blueprint name', prompt='Enter blueprint name', callback=validate_name)
 @click.option('--create-model', is_flag=True, prompt='Create default model?', default=True,
               show_default=True, help='Use, if you need empty model')
