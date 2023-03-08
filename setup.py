@@ -1,6 +1,10 @@
 from setuptools import setup
+
+
 from flask_cblueprint import __title__, __author__, __author_email__, __version__, __copyright__, __license__
 
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
 
 # Opening the README.md file and assigning it to the variable `readme`.
 readme = open("./README.md", "r")
@@ -18,8 +22,5 @@ setup(
     long_description=readme.read(),
     long_description_content_type='text/markdown',
     keywords=['Flask'],
-    install_requires=[
-        "Flask>=1.0.4",
-        "Werkzeug>=1.0.1",
-    ]
+    install_requires=required
 )
