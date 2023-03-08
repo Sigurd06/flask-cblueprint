@@ -33,5 +33,19 @@ class FlaskCBlueprint:
         :param app: Flask
         :type app: Flask
         """
+        # A way to make the class more flexible.
+        # If you want to use the class without passing an app,
+        # you can do it.
+        # But if you want to pass an app, you can do it too.
+        # It is a way to make the class more flexible.
+        blueprint_directories = app.config.setdefault('FLASK_CBLUEPRINTS_DIRECTORY', None)
+        if blueprint_directories is None:
+            blueprint_directories = 'app/blueprints'
+
+        # Updating the app's configuration.
+        app.config.update(
+            FLASK_CBLUEPRINTS_DIRECTORY = blueprint_directories
+        )
+        # Adding the commands to the app's command line interface.
         self.__add_command()
         app.cli.add_command(self.__app_cli)

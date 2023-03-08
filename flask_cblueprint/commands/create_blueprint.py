@@ -5,16 +5,14 @@ from string import Template
 from simple_term_menu import TerminalMenu
 
 from flask.cli import with_appcontext
+from flask import current_app
 
 from flask_cblueprint.utils.list import list_boilerplate_skeletons
 from flask_cblueprint.utils.validate import validate_name
 from flask_cblueprint.utils import filesystem
 from flask_cblueprint.utils.list import list_boilerplate_models
 from flask_cblueprint.utils.string import snake_to_camel
-from flask_cblueprint.config import (BLUEPRINTS_BOILERPLATE,
-                                    BLUEPRINTS_DIRECTORY,
-                                    BLUEPRINTS_VIEW_STYLES, 
-                                    FLASK_LINK_VIEWS)
+from flask_cblueprint.config import BLUEPRINTS_BOILERPLATE, BLUEPRINTS_VIEW_STYLES, FLASK_LINK_VIEWS
 
 
 @click.command('create-blueprint')
@@ -66,7 +64,7 @@ def create_blueprint_command(app_name, name, create_model, url_rule, skeleton):
     # 
     available_models = list_boilerplate_models(BLUEPRINTS_BOILERPLATE)
     boilerplate_folder = BLUEPRINTS_BOILERPLATE
-    blueprints_folder = BLUEPRINTS_DIRECTORY
+    blueprints_folder = current_app.config['FLASK_CBLUEPRINTS_DIRECTORY']
     view_style_folder = view_style[1]
 
     # Creating a dictionary with the keys and values of the variables that will be used in the

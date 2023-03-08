@@ -1,8 +1,7 @@
-import os
 from dotenv import load_dotenv
 load_dotenv()
 
-BLUEPRINTS_DIRECTORY = os.getenv('FLASK_BLUEPRINT_FOLDER', 'app/blueprints')
+# FLASK_CBLUEPRINTS_DIRECTORY = os.getenv('FLASK_BLUEPRINT_FOLDER', 'app/blueprints')
 BLUEPRINTS_BOILERPLATE = "flask_cblueprint/__boilerplate__"
 BLUEPRINTS_VIEW_STYLES = [
     ["None", ""],
