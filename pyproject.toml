@@ -1,0 +1,22 @@
+[project]
+name = "Flask-CBlueprint"
+description = "is a simple extension that adds clear and basic commands to the [Flask](https://flask.palletsprojects.com/en/2.2.x/) micro framework"
+readme = "README.md"
+license = {text = "MIT"}
+maintainers = [{name = "Camilo Vargas", email = "bomilo66@gmail.com"}]
+authors = [{name = "Camilo Vargas", email = "bomilo66@gmail.com"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "Flask>=1.0.4",
+    "Werkzeug>=1.0.1",
+]
+
+[project.urls]
+Documentation = "https://pypi.org/project/Flask-CBlueprint/"
+"Source Code" = "https://github.com/Sigurd06/flask-cblueprint"
+"Issue Tracker" = "https://github.com/Sigurd06/flask-cblueprint/issues"
+Twitter = "https://twitter.com/_sigurd_"
