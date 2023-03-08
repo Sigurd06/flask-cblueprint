@@ -6,6 +6,10 @@ load_dotenv()
 
 
 def create_app():
+    """
+    It creates a Flask app and initializes the FlaskCBlueprint extension.
+    :return: The app object is being returned.
+    """
 
     app = Flask(__name__)
 

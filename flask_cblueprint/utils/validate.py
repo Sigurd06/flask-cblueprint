@@ -3,6 +3,14 @@ import click
 
 
 def validate_name(ctx, param, value):
+    """
+    It checks if the value passed to the `--name` option is a valid blueprint name
+    
+    :param ctx: The context object
+    :param param: The name of the parameter
+    :param value: The value of the parameter
+    :return: The value of the parameter.
+    """
     def fail(text):
         ctx.fail(click.style(text, fg="red", bold=True))
 

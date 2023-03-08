@@ -2,8 +2,10 @@ from setuptools import setup
 from flask_cblueprint import __title__, __author__, __author_email__, __version__, __copyright__, __license__
 
 
+# Opening the README.md file and assigning it to the variable `readme`.
 readme = open("./README.md", "r")
 
+# A setup function that is used to install the package.
 setup(
     name=__title__,
     version= __version__,

@@ -26,9 +26,20 @@ from flask_cblueprint.config import (BLUEPRINTS_BOILERPLATE,
 @click.option('--skeleton', help='Skeleton name (folder name)')
 @with_appcontext
 def create_blueprint_command(app_name, name, create_model, url_rule, skeleton):
+    """
+    > It creates a blueprint folder structure, creates a model if requested, and injects template
+    variables into the blueprint files
+    
+    :param app_name: The name of the app
+    :param name: The name of the blueprint
+    :param create_model: If True, a model will be created for the blueprint
+    :param url_rule: The URL rule for the blueprint
+    :param skeleton: The blueprint structure
+    """
     available_view_styles = BLUEPRINTS_VIEW_STYLES
     available_skeletons = list_boilerplate_skeletons(BLUEPRINTS_BOILERPLATE)
 
+    # Creating a menu for the user to select a skeleton.
     if not skeleton:
         skeleton_selection_menu = TerminalMenu(
             available_skeletons,
@@ -36,8 +47,10 @@ def create_blueprint_command(app_name, name, create_model, url_rule, skeleton):
         )
         skeleton = available_skeletons[skeleton_selection_menu.show()]
     
+    # Printing the skeleton name to the console.
     click.echo(f"Skeleton: {skeleton}")
 
+    # Creating a menu for the user to select a view style.
     view_style_selection_menu = TerminalMenu(
         list(map(lambda x: x[0], available_view_styles)),
         title=f"Select view style. {FLASK_LINK_VIEWS}"
@@ -50,11 +63,14 @@ def create_blueprint_command(app_name, name, create_model, url_rule, skeleton):
     def echo_success(msg):
         click.echo(click.style(msg, fg="green", bold=True))
 
+    # 
     available_models = list_boilerplate_models(BLUEPRINTS_BOILERPLATE)
     boilerplate_folder = BLUEPRINTS_BOILERPLATE
     blueprints_folder = BLUEPRINTS_DIRECTORY
     view_style_folder = view_style[1]
 
+    # Creating a dictionary with the keys and values of the variables that will be used in the
+    # templates.
     template_vars = {
         **{
             "app_name": app_name,

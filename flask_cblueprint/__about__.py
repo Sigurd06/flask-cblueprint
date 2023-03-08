@@ -1,3 +1,4 @@
+# A way to define the metadata of the package.
 __title__ = 'Flask-CBlueprint'
 __version_info__ = ("0", "1", "0")
 __version__ = ".".join(__version_info__)
